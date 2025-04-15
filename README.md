@@ -7,7 +7,7 @@ Names from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) are supported (
 # Commands & Config
 
 The package comes with four commands, all prefixed with "Character Info:". 
-
+asdasdasd
 "Toggle Prefix", "Toggle Padding", and "Toggle Caps" are simply shortcuts to update the configuration.
 
 "Character Info: Rebuild Nerdfonts Mappings" parses the glyphnames.json into a new file for the plugin to reference. 
