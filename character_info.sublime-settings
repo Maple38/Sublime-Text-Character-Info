@@ -1,0 +1,8 @@
+{
+  "enable_prefix": true,
+  "enable_padding": true,
+  "capitalize": true,
+  // If this is enabled, info will be shown for the character to the right of the cursor, as opposed to the left
+  "right_of_cursor": false,
+  "nerdfonts_support": true
+}

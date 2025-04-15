@@ -1,0 +1,14 @@
+[
+	{
+		"caption": "Character Info: Toggle Prefix", "command": "charinfo_toggle_prefix"
+	},
+	{
+		"caption": "Character Info: Toggle Padding", "command": "charinfo_toggle_padding"
+	},
+	{
+		"caption": "Character Info: Toggle Caps", "command": "charinfo_toggle_caps"
+	},
+	{
+		"caption": "Character Info: Rebuild Nerdfonts Mappings", "command": "charinfo_rebuild_nerdfonts_mappings"
+	}
+]
