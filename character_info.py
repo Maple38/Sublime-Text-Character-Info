@@ -32,8 +32,11 @@ def get_char(view):
 
     char = view.substr(pos)
 
-    code = format(ord(str(char)), "x")
-    return char, code
+    id_int = ord(str(char))
+    if enable_caps: code = format(id_int, "X")
+    else: code = format(id_int, "x")
+
+    return char, code, id_int
 
 
 def settings_refresh():
@@ -66,7 +69,7 @@ def parse_name(char, code):
 
 def load_mappings():
     if nerdfonts_support:
-        print('Nerdfonts enabled...')
+        print('Nerdfonts enabled.')
         global mappings
         try:
             with open(nerdfonts_ids_path, 'r') as file_in:
@@ -76,18 +79,16 @@ def load_mappings():
             with open(nerdfonts_ids_path, 'r') as file_in:
                 mappings = json.load(file_in)
     else:
-        print('Nerdfonts disabled...')
+        print('Nerdfonts disabled.')
 
 
 class UnicodeInfo(sublime_plugin.EventListener):
     def on_selection_modified_async(self, view):
         if len(view.sel()) == 1 and view.sel()[0].empty():
-            char, code = get_char(view)
+            char, code, id_int = get_char(view)
 
             char_name = parse_name(char, code)
 
-            if enable_caps:
-                code = code.upper()
             if enable_padding:
                 code = code.zfill(4)
             if enable_prefix:
@@ -98,7 +99,7 @@ class UnicodeInfo(sublime_plugin.EventListener):
             else:
                 char = "'" + char + "'"
 
-            output_string = f"Character: {char}, Unicode: {code}, Name: {char_name}"
+            output_string = f"Character: {char}, Unicode: {code}, Int: {id_int}, Name: {char_name}"
             # print(output_string)
             view.set_status("unicode", output_string)
 
